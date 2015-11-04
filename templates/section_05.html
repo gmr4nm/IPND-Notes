@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Section 05</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      position: relative; 
+  }
+  #section1 {padding-top:50px;height:800px;color: #fff; background-color: #1E88E5;}
+  #section2 {padding-top:50px;height:900px;color: #fff; background-color: #673ab7;}
+  #section3 {padding-top:50px;height:600px;color: #fff; background-color: #ff9800;}
+  #section4 {padding-top:50px;height:450px;color: #fff; background-color: #00bcd4;}
+  #section5 {padding-top:50px;height:350px;color: #fff; background-color: #009688;}
+  </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="/">Graham's IPND Notes</a>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="#section1">Lesson 5.1</a></li>
+          <li><a href="#section2">Lesson 5.2</a></li>
+          <li><a href="#section3">Lesson 5.3</a></li>
+          <li><a href="#section4">Lesson 5.4</a></li>
+          <li><a href="#section5">Lesson 5.5</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>    
+
+<div id="section1" class="container-fluid">
+  <h2>Lesson 5.1 - Meet Javascript</h2>
+  <br>
+  <div class="lesson 5.1">
+    <h3>Adding Javascript to a Page</h3>
+      <ul>
+      <li>The Easy Way - Put JS directly into your HTML file</li>
+        <br>
+      <li>The Better Way - Write JS in a separate .js file</li>
+       <br>
+      </ul>
+        <p>Use the &lt;script src=“relative path”&gt;(nothing here)&lt;/script&gt; tags to define .js in your HTML head. Most browsers will cache the file and won’t have to reload it for each page…this makes your website faster!</p>
+    <h3>Common Syntax</h3>
+      <ul>
+        <li>Variables: var some_variable = “some_value”;</li>
+        <li>String Methods: [some_string].replace([old], [new]);</li>
+        <li>jQuery: $(selector).action();</li>
+      </ul>
+    <h3>JavaScript Object Notation</h3>
+      <p>JSON is a popular and simple format for storing and transferring nested or hierarchal data. It's so popular that most other programming languages have libraries capable of parsing and writing JSON. Internet GET and POST requests frequently pass data in JSON format. JSON allows for objects (or data of other types) to be easily encapsulated within other objects. See the MDN or JSON.org for more details.
+      <br>
+    Note: you should ‘lint’ your JSON code for errors before you deploy it!</p>
+  <h3>Truthy vs. Falsey</h3>
+    <p>Javascript has a set of values that are equivalent to True and False, but aren’t precisely equal to True/False. 
+    <br><br>
+    Truthy: true, non-zero numbers, “strings”, objects, arrays, and functions.
+    <br><br>
+    Falsy: false, 0, “”, undefined, null, NaN.</p>
+  </div>
+            <!-- End Lesson 5.1 -->
+</div>
+<div id="section2" class="container-fluid">
+ <h2>Lesson 5.2 - The Power of API’s</h2>
+  <div class="lesson 5.2">
+    <h3>API - Application Programming Interface</h3>
+      <p>An API provides a system of building blocks of code, which allows definitions and implementations to vary without compromising the system as a whole. A good API makes it easier to develop a program by providing all key parts requisite for a programmer to combine building blocks from the API with code from multiple sources. The developers then put the pieces together to form novel implementations.</p>
+    <h3>Common Formates API's Use for Communication</h3>
+      <ul>
+        <li>SOAP (complicated and awful)</li>
+        <li>protocol buffers</li>
+        <li>Thrift (facebook)</li>
+        <li>Plain-text, custom(don't do this)</li>
+        <li>JSON</li>
+        <li>XML</li>
+      </ul>
+    <h3>Parsing XML and JSON with Python</h3>
+      <p style="text-indent:0;">XML: from xml.dom import minidom
+         <br><br>
+         JSON: import json
+         <br><br>
+         json.loads(json_string)
+         <br><br>
+         NEVER use eval(json_string)!!! If someone has placed code inside the JSON, this will inject it.</p>
+    <h3>Good Citizenship</h3>
+      <ul>
+        <li>Use a good user-agent (identify yourself and give a way to get ahold of you if you’re going to make a lot of requests)</li>
+        <li>Rate-limit yourself</li>
+      </ul>
+    <h3>Further Exploration</h3>
+      <a href="https://www.youtube.com/watch?v=pxofwuWTs7c">https://www.youtube.com/watch?v=pxofwuWTs7c</a>
+      <p>I followed the above tutorial on youtube to get another perspective on how to utilize API's on my website. The tutorial shows how to use Python to input user location information to query the Locu website API. This was a nice refresher on GET/POST HTTP methods and combines this information with what I had already learned about API's. The final result allows you to return a dynamically generated list of restaurants located in the user's location. The tutorial also gives a lot of other ideas for how other API's could be used to extend this type of functionality even further.</p>
+  </div>
+               <!-- End Lesson 5.2 -->
+</div>
+<div id="section3" class="container-fluid">
+  <h2>Lesson 5.3 - Recursion Programming</h2>
+  <br>
+  <div class="lesson 5.3">
+    <h3>Recursive Definitions</h3>
+      <p>Defining something both circularly (in terms of itself) and abstractly. The abstract definition is the the base case (stopping point). The circular definition is the recursive definition. </p>
+    <h3>An example of a recursive definition:</h3>
+      <ul>
+        <li>Ancestor &#8594; Parent (Base)</li>
+        <li>Ancestor &#8594; Parent of Ancestor (Recursive)</li>
+      </ul>
+    <h3>An Example Defining Factorials</h3>
+      <p style="text-indent:0;">factorial(n) = n * (n - 1) * (n - 2) * (n -3) * … * 1
+      <br><br>
+      A recursive definition would look like this:
+      <br><br>
+      factorial(0) = 1 (Base Case)
+      <br><br>
+      if n > 0
+      <br><br>
+      factorial(n) = n * factorial(n -1) (Recursive Case)
+      <br><br>
+  </div>
+               <!-- End Lesson 5.3 -->
+</div>
+<div id="section4" class="container-fluid">
+  <h2>Lesson 5.4 - Solving Big Problems</h2>
+  <div class="lesson 5.4">
+    <h3>Initially</h3>
+      <p>Sketch out the main concepts or challenges you need to address and which programming principles would be useful for addressing each challenge. Write psuedocode if you have to.</p>
+    <h3>Pacing</h3>
+      <p>Break the problem into small bite sized pieces. Frequently, the biggest challenge isn’t the complexity of any one issue, but the magnitude of dealing with so many things at once. Try to manage this by looking at the problem a little bit at a time.</p>
+    <h3>Use Regression Tests</h3>
+      <p>You want to make sure that as you continue to modify a program, you aren’t breaking functions that you’ve previously built. You can also use regression tests as benchmarks for how fast parts of your program is running. This will save you significant time by preventing you from putting time into bad ideas.</p>
+   </div>
+              <!-- End Lesson 5.4 -->
+</div>
+<div id="section5" class="container-fluid">
+  <h2>Lesson 5.5 - Making Pages Look Good</h2>
+   <div class="lesson 5.5">
+    <h3>Going Further with Bootstrapping</h3>
+      <p>Bootstrap is an open-source collection of HTML/CSS/JS tools for creating front-end applications. Because of its versatility and simplicity, Bootstrap is currently the most popular package on Github. I decided to explore this framework further by reading the documentation at <a href="http://getbootstrap.com/">http://getbootstrap.com/</a> and doing the tutorials at <a href="http://www.w3schools.com/bootstrap/">http://www.w3schools.com/bootstrap/</a>. This page is displayed using bootstrap and is based on the template at <a href="http://www.w3schools.com/bootstrap/bootstrap_scrollspy.asp">http://www.w3schools.com/bootstrap/bootstrap_scrollspy.asp</a>. After exploring this topic, it is clear to me why this framework is so incredibly popular. Additionally, I really like the fact that Bootstrap makes it easier to reliably display content across modern versions of the major browsers! The Bootstrap developers also created a lint tool which I used to check the code for this page (<a href="https://github.com/twbs/bootlint">https://github.com/twbs/bootlint</a>).</p>
+      <p>I also explored the tutorials over at <a href="https://dash.generalassemb.ly/projects">https://dash.generalassemb.ly/projects</a>. I am planning on using their "build a mad-libs" tutorial to build an interactive Javascript version of the Stage 2 project that I will display on the final version of this website.</p>
+
+   </div>
+</div>
+
+</body>
+</html>

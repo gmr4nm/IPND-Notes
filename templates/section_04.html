@@ -1,0 +1,301 @@
+
+
+<body>
+{% extends "template.html" %} 
+{% block content %} 
+
+<nav>
+  |
+  <a href="#lesson4.1">Lesson 4.1</a> |
+  <a href="#lesson4.2">Lesson 4.2</a> |
+  <a href="#lesson4.3">Lesson 4.3</a> |
+  <a href="#lesson4.4">Lesson 4.4</a> |
+  <a href="#lesson4.5">Lesson 4.5</a> |
+  <a href="#lesson4.6">Lesson 4.6</a> |
+  <a href="#lesson4.7">Lesson 4.7</a> |
+</nav> 
+
+<br>
+<section id="lesson4.1">
+  <h2>Lesson 4.1 - Introduction to Networks</h2>
+  <br>
+  <div class="lesson 4.1">
+
+	<h3>Basic Definitions</h3>
+		<ul>
+			<li>Network - a group of entities that can communicate, even though they are not all directly connected. A group of entities that are all directly connected is technically not a network.</li>
+      <br>
+			<li>Latency - the time that it takes for a message to get from the source to intended recipient of the message. </li>
+      <br>
+			<li>Bandwidth - amount of information that can be transmitted per unit of time.</li>
+      <br>
+			<li>Bit - a bit is the smallest unit of information. In a computational binary system, a bit is either a 1 or a 0. Each time you add a bit in a binary system, you theoretically double the amount of information you can transmit.</li>
+      <br>
+			<li>Protocol - a set or rules that determine how two entities talk to each other. </li>
+      <br>
+			<li>Flooding the network - A message from one node in a network spreads to each available node at each step of propagation, resulting in every node receiving the message at least once. This is highly inefficient. </li>
+      <br>
+		</ul>
+	<h3>Basic Principles</h3>
+		<p>The two main ways the measure a network are latency and bandwidth. Latency is generally a property of the geographical distance and the number and quality of nodes that data is passing through. Bandwidtch can be related to most network variables other than distance. </p>
+		<p>To make a functional network, you need ways to encode and interpret messages, specific ways to route messages, and rules for deciding who gets to use resources. The HyperText Transfer Protocol (HTTP) fulfils this need for most browser-server communications on the internet.</p>
+
+  </div>
+</section>  <!-- End Lesson 4.1 -->
+<br>
+
+<section id="lesson4.2">
+  <h2>Lesson 4.2 - Make the Internet Work for You</h2>
+  <br>
+  <div class="lesson 4.2">
+  	<h3>URL - Uniform Resource Locator</h3>
+  		<p>A URL is is a functional command that specifies locations and communicates with a server in the typical web browswer environment. A URL typically specifies a protocol, a host, defines a path, and may contain other information such as queries, fragments, or specify which port(s) are used for specific operations.</p>
+  	<h3>A Diagramed Example:</h3>
+  		<p> http://example.com:8000/somepath/foo?parameter=bar#afragment </p>
+  		<ol> 
+  			<li> http &#x2192; Protocol </li>
+  			<li> example.com &#x2192; Host </li>
+  			<li> :8000 &#x2192; Port 8000 </li>
+  			<li> /somepath/foo &#x2192; Path </li>
+  			<li> ?parameter=bar &#x2192; Query </li>
+  			<li> #afragment &#x2192; Fragment </li>
+  		</ol>
+  	<h3>Relative vs. Absolute Paths</h3>
+  		<p>In the above example, the host is not diagramed as part of the path. This is only true if you are talking about relative paths (relative to the host or the page where the link appears). The absolute path will also contain the host information and the protocol. </p>
+  	<h3>Using query parameters</h3>
+  		<p style="text-indent:0;">In the example:
+  			<br><br>
+  			http://example.com/path?p=1&g=foo&h=bar
+  			<br><br>
+  			Note that the first parameter is separated by a ? and following queries are separated by &’s. A large number of parameters can be defined for a server in this way.
+  		</p>
+  	<h3>Using Fragments</h3>
+  		<p>A fragment is separated from the rest of the URL by a hashtag. It generally follows the parameters. It is not sent to the server, but it is used to reference a part of the page that you are looking at and exists purely in the browser. Note that queries are part of the path, but fragments never are. </p>
+  	<h3>Using Ports</h3>
+  		<p>In order to make a connection with a machine, you need an address of the machine (host) and you need a port. The default port is 80. If you want to specify a port, you place that in between the host and the path. </p>
+
+  	<h3>HTTP Requests (browser to server)</h3>
+  		<p style="text-indent:0;">There are three components to an HTTP request line: the method, the path, and the version. 
+        <br>
+        For example:
+  			<br><br>
+  			http://www.example.com/foo/apic.png?p=1#somefrag
+  			<br><br>
+  			might look something like this:
+  			<br><br>
+  			GET (method) /foo/apic.png?p=1 (path) HTTP/1.1 (version)
+  			<br> 
+  			Host: www.example.com (host line header)
+  			<br>
+  			Accept: image/gif, image/jpeg, */*	
+  			<br>
+  			Accept-Language: en-us	
+  			<br>
+  			User-Agent: Mozilla 4.0 (user agent header)
+  		</p>
+  	<h3>HTTP Responses (server to browser)</h3>
+  		<p style="text-indent:0;"> An example of the reply format:
+  			<br><br>
+  			HTTP/1.1(version) 200(status code) OK(Reason phrase) <br>
+  			Server: Apache /2.2.3 (note: you generally don’t want to give this information to would-be hackers…)
+  			<br>
+  			Content-Type: test/html;
+  			<br>
+			Content-Length: 1539
+	<h3>Static vs. Dynamic Responses</h3>
+		<ul>
+			<li>Static responses: use pre-written files or images to respond to requests.</li>
+      <br>
+			<li>Dynamic responses: make up the generated content on the fly and respond with it. A web application is what generates this content.</li>
+		</ul>
+	<h3>GET vs POST</h3>
+		<ul>
+			<li>GET - used for fetching documents, has a maximum URL length, is OK to cache, and shouldn’t change the server</li>
+      <br>
+			<li>POST - used for updating data, has no max length, is not OK to cache, and is OK to change the server</li>
+		</ul>
+		<p>GET requests should NEVER change the server. There are all sorts of browser plug-ins that will automatically send GET requests for any number of reasons. Allowing these to change the server is DANGEROUS and does not meet industry standards. </p>
+
+  </div>
+</section>  <!-- End Lesson 4.2 -->
+<br>
+
+<section id="lesson4.3">
+  <h2>Lesson 4.3 - Forms</h2>
+  <br>
+  <div class="lesson 4.3">
+    <h3>Forms - A Functional Class of HTML</h3>
+      <p>Forms are an HTML class (generally displayed as an input box) that allow users to input data on a webpage. The form class is defined by the &lt;form&gt; &lt;/form&gt; tags. Usually opening tag will define an attribute, 'action,' like so:
+        <br><br>
+        &lt;form action="http://someurl.com"&gt;
+        <br><br>
+        The action attribute defines a URL where the form input is sent. 
+      </p>
+    <h3>Form Methods</h3>
+      <p style="text-align:center">&lt;form method="get|post"&gt;</p>
+     
+      <p>GET appends form data into the URL(name/value pairs in the query) and should NEVER be used to send sensitive data. As previously mentioned, it should never be used to change data on the server. This method can be very useful for defining specific content that a user might wish to bookmark. </p>
+      <p>POST does not append data into the URL and is therefore suitable or handling sensitive data. There are also no inherent size limits associated with POST data. </p>
+    <h3>Labels</h3>
+      <p>Labels organize and define content inside of a form class. These are much cleaner than just entering raw text and allow you to define both input and labels as a specific class in your web framework or CSS.</p>
+    <h3>Input</h3>
+      <p>The HTML input class is defined by the &lt;input&gt; &lt;/input&gt; tags. These tags are defined within a form class. Inputs are usually defined by type, name, and value (although there are many other attributes they can have). </p>
+    <h3>Other Input Options</h3>
+      <p>The &lt;select&gt; &lt;/select&gt; tags are used to define dropdown selection menus (where &lt;option&gt; &lt;/option&gt; tags are used to specify options). Name and value attributes can be specified to specify how query strings are appended. </p>
+  </div>
+</section>  <!-- End Lesson 4.3 -->
+<br>
+
+<section id="lesson4.4">
+  <h2>Lesson 4.4 - Python Break-Modulus and Dictionaries</h2>
+  <br>
+  <div class="lesson 4.4">
+    <h3>Break-Modulus</h3>
+      <p>The python break-modulus can be useful for defining relationships between number sets. It defines <em>r</em> where <em>r</em> is related to <em>a</em> and <em>b</em> such that:
+      <br><br> 
+      <em>a</em> % <em>b</em> = <em>r</em> 
+      <br><br>
+      where <em>a</em> / <em>b</em> = <em>q</em> with remainder <em>r</em>
+      </p>
+    <h3>Dictionaries</h3>
+      <p>Unlike lists, dictionaries are mutable. This is because, unlike a list, a dictionary has a key associated with each value. Also, dictonaries have no inherent order (why would they need it if you can look any value up with a key?).
+      <br><br>
+      A dictionary is defined:
+      <br><br>
+      some_dictionary = {key1:value1, key2:value2}
+      <br><br>
+      Values can be queried/modified:
+       <br><br>
+      dictionary[key] = some_value
+    </p>
+    <p>It is possible to have a dictionary within a dictionary. Querying or modifying a value within a dictionary is as simple as:
+      <br><br>
+      some_dictionary["Parent_key"][“Daughter_key”] = daughter_key_value
+    </p>
+ </div>
+</section>  <!-- End Lesson 4.4 -->
+<br>
+
+<section id="lesson4.5">
+  <h2>Lesson 4.5 - Validation</h2>
+  <br>
+  <div class="lesson 4.5">
+    <h3>Validation</h3> 
+      <p>Validation is the process of verifying on the server side that we received the expected input. Commonly, this would be checking to make sure input doesn't contain certain values defined by Regex expressions or verifying that input isn't 'empty.' It might also include content filters such as the profanity filter used in my guestbook page.</p>
+    <h3>Escaping</h3>
+      <p>Escaping allows you to prevent text that is input into your website from being read as HTML or JS code. This is commonly accomplished be replacing characters like '&gt;' with equivalent HTML expressions (&amp;gt;). Doing this prevents low-level malicious attacks on your website and also allows your user to input a wider range of characters should they feel the need.</p>
+    <h3>String Substitution</h3>
+      <p style="text-indent:0;">The string:
+        <br><br>
+        &lt;bold tag&gt; Some bold text! &lt;/bold tag&gt;
+        <br><br>
+        Can be defined dynamically in one place, and then substituted into the correct placement between the HTML tags like so:
+        <br><br>
+        a = “some bold text”  
+        <br><br>
+        &lt;bold tag&gt; %s &lt;/bold tag&gt; %a
+        <br><br>
+        Additionally, multiple strings can be substituted like so:
+        <br><br>
+        &lt;bold tag&gt; %s %s %s… &lt;/bold tag&gt; %(a, b, c…)
+        <br><br>
+        The number of strings must correspond to the number of substitution commands and substitutions occur in the order they are defined in parenthesis. You can also use a dictionary function to make it easier to keep track of strings, or because you want to reuse the same strings multiple times in different places:
+        <br><br>
+        &lt;bold tag&gt; %(key1)s %(key2)s %(key1)s… &lt;/bold tag&gt; %{“key1”: some_value, “key2”: some_value}</p>
+ </div>
+</section>  <!-- End Lesson 4.5 -->
+<br>
+
+<section id="lesson4.6">
+  <h2>Lesson 4.6 - HTML Templates</h2>
+  <br>
+  <div class="lesson 4.6">
+    <h3>Template Inheritance</h3>
+      <p>What if you don't want to have to write and compile repetitive header/footer content for each page of your website? HTML templates can help!</p>
+      <p>Using the property of template inheritance, it is simple to write one parent template that includes (for example, the header/footer) information and have any number of daughter webpages inherit this information and generate their own individual content around the code that they have inherited from the parent template.</p>
+      <p>Web frameworks make this process much simpler and scalable. They allow a developer to avoid unnecessary repitition in his or her code by facilitating the creation of HTML templates that will propogate code (as desired) anywhere on a website.  For this course, I've primarily worked within the web framework Jinja2.
+      </p>
+    <h3>Inheritance in Jinja2</h3>
+      <p>In order to save time and effort with template inheritance, you will need to create a parent template with the relevant header/footer code. Then add:
+        <br><br>
+        &#123;&#37 block content &#37&#125;
+        <br>
+        &#123;&#37 endblock &#37&#125;
+        <br><br>
+        where you want your dynamically generated content to be displayed in the base template(parent.html). In your daughter templates, put &#123;&#37 extends “parent.html” &#37&#125; at the top of the template to automatically inherit content from parent.html.
+        <br><br>
+        Then you put:
+        <br>
+        &#123;&#37 block content &#37&#125;
+        <br><br>
+        your_dynamically_generated_content_here
+        <br><br>
+        &#123;&#37 endblock &#37&#125;
+        <br><br>
+        This expression will match your block content from the daughter page with the header/footer/styling info from your base.html.
+      </p>
+    <h3>Jinja2 Syntax</h3>
+      <p style="text-indent:0;">&#123;&#123;some_variable&#125;&#125;
+        <br><br>
+        &#123;&#123;&#125;&#125; - really means print and references the variable inside the curly braces.
+        <br><br>
+        Statement Syntax:
+        <br><br>
+        &#123;&#37 some_statement &#37&#125;
+        <br><br>
+        output
+        <br><br>
+        &#123;&#37 end_statement &#37&#125;
+        <br><br>
+        A for loop would be defined like so:
+         <br><br>
+        &#123;&#37 for_statement &#37&#125;
+         <br><br>
+        body
+         <br><br>
+        &#123;&#37  endfor &#37&#125;
+         <br><br>
+      </p>
+     </div>
+</section>  <!-- End Lesson 4.6 -->
+<br>
+
+<section id="lesson4.7">
+  <h2>Lesson 4.7 - Databases</h2>
+  <br>
+  <div class="lesson 4.7">
+    <h3>What is a Database?</h3>
+      <p>A database is a program that stores and retrieves data (usually large amounts of structured data). Usually databases are communicated with via the server that is actually running your website. Browser to database communication is less common.</p>
+      <p>A database is generally made up of tables (columns v. rows).  Usually the first column is related to identity so that each row has an ID (usually an integer) associated with it. </p>
+    <h3>Querying</h3>
+      <p>There are a number of downsides to querying data in Python: the process is error-prone, tedious, and computationally slow. This is the reason databases are necessary and special. The most commonly used query languages are variants of SQL (Structured Query Language). Fortunately, it isn't too difficult to import SQL into Python and wrap SQL requests inside Python functions.
+      <br><br>
+      A query function has the generic syntax:
+      <br><br>
+      SELECT * FROM links WHERE id = some_id;
+      <br><br>
+      A common example of this might look like:
+      <br><br>
+      “select * from links where id = 5 order by votes asc;”
+      </p>
+    <h3>Joins</h3>
+      <p>This type of SQL query uses data from multiple tables to query both. Essentially, this is useful where the query from one table is used to determine the scope of another query. Example where links, user are the two tables:
+      <br><br>
+      “select link* from links, user where link.user_id = user.id and user.name = SPEZ;”
+      </p>
+    <h3>Indexes</h3>
+      <p>Hash tables in Python would be accessed using sequential scans. This would be way too slow with millions of links…especially if the goal is to create a responsive website. Indexes are the solution to this.</p>
+    <h3>ACID Principles</h3>
+      <p>Use ACID principles to make your database as functional as possible. Note that there will always be some tradeoffs between these different principles. You can’t completely do all of these.
+      </p>
+      <ol>
+        <li>Atomicity - All parts of a transaction succeed or fail together. </li>
+        <li>Consistency - The database will always be consistent. </li>
+        <li>Isolation - No transaction can interfere with another. </li>
+        <li>Durability - Once a transaction is accomplished, it will not be lost. </li>
+      </ol>
+  </div>
+</section>  <!-- End Lesson 4.7 -->      
+    
+ {% endblock %}   
+    

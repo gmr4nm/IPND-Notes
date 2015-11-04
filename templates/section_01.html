@@ -1,0 +1,101 @@
+
+
+<body>
+{% extends "template.html" %} 
+{% block content %} 
+
+<nav>
+  |
+  <a href="#lesson1.1">Lesson 1.1</a> |
+  <a href="#lesson1.2">Lesson 1.2</a> |
+  <a href="#lesson1.3">Lesson 1.3</a> |
+</nav> 
+
+<br>
+<section id="lesson1.1">
+  <h2>Lesson 1.1 - Introduction to HTML</h2>
+  <br>
+  <div class="lesson 1.1">
+
+    <h3>The Big Picture</h3>
+        <p>The internet (or "the web") refers to the large global system of interconnected computer networks that facilitate most exchanges of information in the 21st century. The <em>"glue"</em> that connects an individual computer to the web is a programming language known as <strong>HTML</strong>, or <strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage. HTML is used to convey and facilitate the display of content in standardized ways within a browser. </p>
+   
+    <h3>Basics</h3>
+        <p>A properly formatted HTML document is composed of a <strong>head</strong> and a <strong>body</strong>. The head contains metadata (like document and page titles) and  references other code that will effect how the HTML is displayed (usually CSS/Javascript). The body is generally composed of elements that make up the structure and content of your page.</p>
+        <p>Within an HTML docment, information is conveyed via <strong>elements</strong>. Elements are denoted by either one or more tags that tell the browser what the element is, and what to do with it. The first tag in an element is referred to as the <strong>start tag</strong>. The final tag in an element is termed the <strong>stop tag</strong>. Elements can also be nested within other elements creating a near infinite number of possibilities for the display of information.</p>
+    
+    <h3>Key Terminology</h3>
+        <p><strong>Void Elements</strong>: Elements where the entire element is contained within a single tag. Examples of this include the &lt;br&gt; (break) element or the &lt;img&gt; (image) element. </p>
+        <p><strong>Block Elements</strong>: Elements that are "boxed off" from neighboring elements and usually begin a new line. These could be seen as definitionally opposite to <strong>inline elements</strong> which do not begin a new line.</p>
+
+    <h3>Some Useful Examples of Element Tags</h3>
+        <ul>
+         <li>&lt;b&gt;text&lt;/b&gt; - Bolded <b>text</b></li>
+         <li>&lt;em&gt;text&lt;/em&gt; - Italicized <em>text</em></li>
+         <li> &lt;a href="www.url.com"> The text you want to display &lt;/a&gt; - Anchor tag. This is useful for embedding links.
+         <li> &lt;img src="image.jpg" alt="description of image"&gt; - Images tag. This will embed image files in the displayed document.</li> 
+       </ul> 
+ 
+    <h3>Philosophy</h3>
+       <p>Computers are stupid. They do what a programmer tells them to do. If arguments or syntax are incorrect, the computer will not behave as expected. A good programmer must take responsibility for all aspects of his or her code. </p>
+
+  </div>
+</section>  <!-- End Lesson 1.1 -->
+<br>
+<section id="lesson1.2">
+  <h2>Lesson 1.2 - Creating a Structured Document</h2>
+  <br>
+  <div class="lesson 1.2">
+     <h3>Website Components: a House Metaphor</h3>
+        <ul>
+          <li>HTML - HTML is the structure of your page. Just like the walls and floors of a house, there are fixed components that can be styled in a number of ways.</li>
+          <li>CSS - CSS is the style component of your page. Much like the paint and carpeting of a house, these properties can be applied to as much or as little of your structure as is desired. </li>
+          <li>Java - Java is the interactive part of your website. Much like a garage door or an appliance in a house, Java can add significant functionality to your website.</li>
+        </ul>
+
+    <h3>Webpage Design: the Big Picture</h3>
+         <p>The vocabulary of HTML is the tag. The DOM recognizes tags and turns them into elements. CSS allows you to alter the syntax of HTML in order to change style and placement of elements on the page. </p>
+          <p>Webpages are designed in layouts composed of rectangles. One rectangle can be made up of multiple other rectangle shaped elements. When planning or deconstructing a web page, it is a good idea to “boxify” it by drawing it on paper first. Boxes are coded into hierarchal tree structures that make interpreting HTML code logical:</p>
+
+    <h3>Organizing Your Code</h3>
+        <p>When designing HTML elements, it is useful to put them in container elements so that they can be modified, <em>en masse</em>, using CSS commands. &lt;div&gt;...&lt;/div&gt; is a block element that can be used to simultaneously define a box and facilitate CSS commands. &lt;span&gt;...&lt;/span&gt; is an in-line command that allows the programmer to write CSS code for an entire section that is not defined as a separate box. Note: remember to label your containers! This makes it easy to keep track of which container is which in the future. </p>
+ 
+    <h3>The Right Tool(s) for the Job</h3>
+        <p>There are three text editors that Udacity currently recommends for HTML/CSS coding: Scratchpad is the fastest and least formal way to quickly generate code. The downside is that you have to copy/paste anything you write there if you want to use it again or share it. CodePen is slightly less user-friendly, but makes sharing code extremely easy! Sublime Text is a high-performance text editor that can be used to edit and share code written in any language. However, Sublime Text has many more options to customize and this creates a bit of a learning curve. Picking the correct text editor for your needs can save you time and headaches!</p>
+
+    </div>
+</section> <!--End Lesson 1.2-->
+<br>
+<section id="lesson1.3">
+  <h2> Lesson 1.3 - CSS</h2> 
+  <br>
+  <div class="lesson 1.3">
+    <h3> Decorating Your House the Efficient Way</h3>
+       <p> Inheritance is the property within CSS that allows descendant elements to inherit text-related properties that were applied to their ancestors. This means that efficient HTML and CSS coding cooperate to allow a developer to repeat an action many times by writing a single line of code in CSS that will reference many elements of an HTML document. However, in order for this to work properly, you will need to plan ahead when you write HTML code!
+  
+    <h3> Methods of Implementing CSS </h3>
+       <ol>
+          <li>Link to a seperate CSS document from your HTML document (generally most efficient).<br>
+          For example: &lt;link rel="stylesheet" type=”text/css” href="style.css"&gt;</li>
+          <li>Use style tags within containers or inside the head of your HTML document (don't do this if it leads to repetition!). <br> For example: &lt;div style="color : blue">this text would be blue&lt;/div&gt;
+         </ol>
+
+    <h3>Don't Repeat Yourself</h3>
+        <p> Classes and elements should be styled with as little repetition as possible. To facilitate this, CSS styling should be added first to major classes/containers and last to minor elements. This will make your code more efficient and easier for another programmer to read. Even better, this saves time and minimizes the potential for mistakes during the initial steps of coding.  As your code will likely require upgrades or improvements later, future efforts will be more effective as they will have built-in properties that of prevent inefficiency. </p>
+
+      <h3>Useful Properties of Boxes </h3> 
+        <ul>
+            <li>Content: What you want the viewer to notice.</li>
+            <li>Padding: Used to clear an area between your content and its border (especially useful when visible borders aren't box-shaped).</li>
+            <li>Margin: Increase margins to create space between your boxes or just to generally push things apart.</li>
+            <li>Tip: Use the "box-sizing: border-box;" tool to define the total size of your box one easy step!</li>
+        </ul>
+
+      <h3> Browser Specific Elements</h3>
+         <p> Some elements of your code may need  browser-specific prefixes to be compatible with multiple browsers.  Additionally, different devices will have variable amounts of real estate on their screens. Think about defining elements by percentages rather than fixed numbers of pixels.  
+          Keep in mind the many ways a user might access your page when you plan your CSS code. </p>
+    
+  </div>  <!--End Lesson 1.3-->
+        
+ {% endblock %}   
+    

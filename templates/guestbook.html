@@ -1,0 +1,28 @@
+
+<body>
+{% extends "template.html" %} 
+{% block content %} 
+
+<h1>Guestbook</h1>
+<br>
+<br>
+ <body>
+    <span style="color:red;"class="error">
+
+      {% if error %}
+      <h4>You input was invalid. Try again!</h4>
+      {%else%}
+      {% endif %}
+
+    </span>
+    {% for greeting in greetings %}
+        <h2>A guest wrote:</h2>
+      <p>{{ greeting.content }}</p>
+    {% endfor %}
+    <form action="/sign" method="post">
+      <div><textarea name="content" rows="3" cols="120" placeholder="Your comment here..." style="padding:10px;"></textarea></div>
+      <div><input type="submit" value="Sign Guestbook"></div>
+    </form>
+  </body>
+    
+ {% endblock %}   

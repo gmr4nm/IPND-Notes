@@ -1,0 +1,118 @@
+/* modified from http://meyerweb.com/eric/tools/css/reset   (v2.0)*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body{
+    background-image: url("bonzai.jpg");
+  /* I uploaded an image that I used as the background*/
+    background-size: cover;
+  /* Background image will adjust to the page*/
+    background-attachment:fixed;
+    background-position: center;
+    position:absolute;
+  /*Background is centered and stationary*/
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left:15%;
+    margin-right:15%; 
+  /* I defined margins on the body to make the page look less cluttered*/
+}
+
+nav {
+  margin-top: 3%;
+  font-size: 125%;
+  text-align: center;
+  padding: 0.3%;
+  width: 100%;
+  background-color:grey;
+  border-radius: 2em;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color:#673203
+}
+
+a:visited { 
+  color:#307861;  
+}
+/*changes color of anchors when you hover over them and after you click them*/
+
+h1 {
+  font-size: 250%;
+  text-align: center;
+  text-shadow: 1px 1px 5px   #7F530A;
+  margin-top:3%;
+}
+
+h1, h2, h3, p, ul, ol{
+  color: white;
+  font-family: Helvitica;
+}
+
+h2 {
+  font-size: 150%;
+  text-align: center;
+  padding: 0.1%;
+  width: 70%;
+  background-color:grey;
+  border-radius: 45px 5%;
+}
+
+h3 {
+  font-size: 200%;
+  color: white;
+  text-shadow: 1px 1px 5px   #7F530A;
+  text-align: center;
+}
+
+p, ul, ol {
+  opacity: 0.65;
+  font-size: 125% ;
+  color: white;
+  font-family: Helvitica;
+  padding: 0.3%;
+  border-radius: 10px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+p:hover, ol:hover, ul:hover {
+  opacity:1.0;
+  text-shadow: 1px 1px 5px   #7F530A;
+}
+
+p {
+  text-indent: 3%;
+}
+
+ul, ol{
+  padding-left: 3%;
+  text-align: left;
+}
+/*Special formatting for the lists that I didn't want applied to paragraphs*/
